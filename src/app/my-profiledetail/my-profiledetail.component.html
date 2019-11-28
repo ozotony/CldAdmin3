@@ -1,0 +1,103 @@
+
+  <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+  
+            <div class="ui-grid-row"  *ngIf="showloading">
+                <div class="ui-grid-col-12">
+        <div class="loading">
+  <div class="ball"></div>
+Please  Wait...
+</div>
+                </div>
+
+       
+
+
+            </div>
+
+                   <div class="ui-grid-row"  >
+                <div class="ui-grid-col-12">
+                               <p-dataGrid [value]="AgentPaymentStatus2" [paginator]="true" [rows]="20">
+    <p-header>
+       List Of Accredited Agent
+
+       <p-dialog header="{{vcode}}" [(visible)]="display">
+            <form class="form-horizontal"   role="form" >
+                   
+
+                    <div class="ui-grid-row"  *ngIf="showloading">
+                        <div class="ui-grid-col-12">
+                <div class="loading">
+          <div class="ball"></div>
+        Please  Wait...
+        </div>
+                        </div>
+        
+               
+        
+        
+                    </div>
+                    <div class="row">
+
+                           
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                       
+                                            <input class="form-control" class="form-control" type="file" #fileInput />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-control-feedback">
+                                       
+                                        
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                                <div class="col-md-3 field-label-responsive ">
+                                  
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                           
+                                                <button type="button"    (click) ="onSubmit3()"  class="btn btn-success" >Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-control-feedback">
+                                           
+                                            
+                                        </div>
+                                </div>
+                            </div>
+            </form>
+        </p-dialog>
+    </p-header>
+
+
+
+ 
+    <ng-template let-image pTemplate="item">
+
+        <div style="padding:3px" class="ui-g-12 ui-md-4">
+            <p-panel [header]="image.Sys_ID" [style]="{'text-align':'center'}">
+                <span>  {{image.FirstName}} </span>
+                <img [src]="getimage(image.Principal)" class="img-responsive img-thumbnail"  > 
+              
+                <div ><span > <span *ngIf="image.Firstname"> {{image.Firstname.replace('%26','&&')}} - </span>  {{image.Surname.replace('%26','&&')}} </span> <span style="margin-left:20px">  <button id="btn-signup2"    (click) ="onSubmit2(image)" type="button" class="btn btn-info">Delete</button> </span> </div>
+            </p-panel>
+        </div>
+    </ng-template>
+</p-dataGrid>
+                </div>
+
+
+            </div>
+    
+     </div>

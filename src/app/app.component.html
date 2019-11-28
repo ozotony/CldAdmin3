@@ -1,0 +1,65 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-default" style="background-color:#616161">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ADMIN DASHBOARD</a>
+    </div>
+    <ul class="nav navbar-nav pull-right" style="background-color:#616161">
+      <li  routerLinkActive="active"><a routerLink="home" routerLinkActive="active">Home</a> </li>
+     
+   
+      <li routerLinkActive="active" *ngIf="getLoginStatus()" ><a routerLink="logout" routerLinkActive="active">Logout</a></li>
+     
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div [@routerAnimation]="getRouteAnimation(route)">
+  
+
+  <router-outlet #route="outlet"></router-outlet>
+</div>
+
+<div class="row container-fluid" style="overflow:hidden">
+                        
+                        
+                        
+                        
+                        
+  <footer class="pull-left  navbar-fixed-bottom" style="background-color:#3D3D3D;color:#0FDBA1 ;min-height:40px ">
+
+      <div class="col-md-12">
+          
+          
+          
+                              <div class="ff text-center " style="font-size:10px;font-family:Helvetica;">
+                                  Einao Solutions
+          
+                              </div>
+          
+          
+          
+          
+                              <div class="text-center ">
+          
+                                  <img src="assets/Images/IPProLogo2.png" />
+          
+          
+                              </div>
+          
+                          </div>
+
+  </footer>
+
+</div>
+
+
+
+
+
+
+                 
+

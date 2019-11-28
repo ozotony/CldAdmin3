@@ -1,0 +1,40 @@
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+ <div class="loading" *ngIf="showloading">
+  <div class="ball"></div>
+Retrieving Record   Please  Wait...
+</div>
+<p-dataTable [value]="AgentPaymentStatus2" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [globalFilter]="gb" #dt [responsive]="true" >
+    <p-column field="xid" header="Id"></p-column>
+     <p-column field="Sys_ID" header="Agent Code"></p-column>
+      <p-column field="AccrediationType" header="Accreditation Type"></p-column>
+     <p-column field="Firstname" header="FirstName"></p-column>
+    <p-column field="Surname" header="SurName"></p-column>
+     <p-column field="PhoneNumber" header="Phone Number"></p-column>
+     <p-column field="CompanyName" header="Company Name"></p-column>
+      <p-column field="ContactPerson" header="Contact Person"></p-column>
+      <p-column field="ContactPersonPhone" header="Contact Person Phone"></p-column>
+     
+   
+
+    
+
+    
+
+    
+    
+</p-dataTable>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

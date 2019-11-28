@@ -1,0 +1,169 @@
+
+
+
+
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+<p-confirmDialog width="425"></p-confirmDialog>
+
+
+<p-dataTable [value]="AgentPaymentStatus" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [globalFilter]="gb" #dt [responsive]="true" >
+  
+    <p-column field="Xid" header="Id"></p-column>
+     <p-column field="Agent_Code" header="Agent Code"></p-column>
+     <p-column field="FirstName" header="FirstName"></p-column>
+    <p-column field="SurName" header="SurName"></p-column>
+    <p-column field="Paid_Status" header="Payment Status"></p-column>
+
+     <p-column styleClass="col-button">
+     
+        <ng-template let-car="rowData" pTemplate="body">
+             <button type="button" pButton (click)="Approve(car)" label="Approve" icon="fa-thumbs-o-up"></button>
+           
+        </ng-template>
+    </p-column>
+
+     <p-column styleClass="col-button">
+     
+        <ng-template let-car="rowData" pTemplate="body">
+            
+            <button type="button" pButton (click)="Reject(car)" label="Reject" icon="fa-ban"></button>
+            
+        </ng-template>
+    </p-column>
+
+     <p-column styleClass="col-button">
+     
+        <ng-template let-car="rowData" pTemplate="body">
+            
+             <button type="button" pButton (click)="selectCar(car)" label="View" icon="fa-eye"></button>
+        </ng-template>
+    </p-column>
+    
+</p-dataTable>
+
+<p-dialog header="Detail" [(visible)]="display">
+    <table class="table">
+        <tr>
+<td>
+First Name
+</td>
+<td>
+{{AgentPaymentStatus2.FirstName}}
+</td>
+        </tr>
+
+         <tr>
+<td>
+SurName
+</td>
+<td>
+{{AgentPaymentStatus2.SurName}}
+</td>
+        </tr>
+
+        <tr>
+<td>
+Email
+</td>
+<td>
+{{AgentPaymentStatus2.Email}}
+</td>
+        </tr>
+
+         <tr>
+<td>
+Date Of Brith
+</td>
+<td>
+{{AgentPaymentStatus2.DateOfBrith}}
+</td>
+        </tr>
+
+        <tr>
+<td>
+Company Name
+</td>
+<td>
+{{AgentPaymentStatus2.CompanyName}}
+</td>
+        </tr>
+
+         <tr>
+<td>
+Company Address
+</td>
+<td>
+{{AgentPaymentStatus2.CompanyAddress}}
+</td>
+        </tr>
+
+        <tr>
+<td>
+Contact Person
+</td>
+<td>
+{{AgentPaymentStatus2.ContactPerson}}
+</td>
+        </tr>
+
+        <tr>
+<td>
+Contact Person Phone
+</td>
+<td>
+{{AgentPaymentStatus2.ContactPersonPhone}}
+</td>
+        </tr>
+
+         <tr>
+<td>
+Accrediation Type
+</td>
+<td>
+{{AgentPaymentStatus2.AccrediationType}}
+</td>
+        </tr>
+
+        <tr>
+<td>
+REGISTRATION DATE
+</td>
+<td>
+{{AgentPaymentStatus2.xreg_date}}
+</td>
+        </tr>
+
+         <tr>
+                            <td>CERTIFICATE</td>
+                            <td ><a href="http://ipo.cldng.com/{{AgentPaymentStatus2.Certificate}}" target="_blank">Download</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>PASSPORT</td>
+                            <td align="center"><a href="http://ipo.cldng.com/{{AgentPaymentStatus2.Logo}}" target="_blank">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>LETTER OF INTRODUCTION</td>
+                            <td align="center"><a href="http://ipo.cldng.com/{{AgentPaymentStatus2.Introduction}}" target="_blank">Download</a></td>
+                        </tr>
+                            
+
+
+
+    </table>
+  
+</p-dialog>
+ <p-messages [value]="msgs2"></p-messages>
+
+ <div class="loading" *ngIf="showloading">
+  <div class="ball"></div>
+Retrieving Record   Please  Wait...
+</div>
+<div [ngBusy]="busy"></div> 
+ <div class="loading" *ngIf="showloading2">
+  <div class="ball"></div>
+  Please  Wait...
+</div>
